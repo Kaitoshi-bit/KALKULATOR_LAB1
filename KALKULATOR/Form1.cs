@@ -30,11 +30,13 @@ namespace BasicCalculatorWinForms
             this.btnMultiply.Click += BtnMultiply_Click;
             this.btnDivide.Click += BtnDivide_Click;
             this.btnEquals.Click += BtnEquals_Click;
+            this.btnSqrt.Click += BtnSqrt_Click;
+            this.btnPower.Click += BtnPower_Click;
         }
 
 
-        /// Обработчик нажатия кнопки цифры.
-        /// Добавляет цифру на дисплей и обновляет историю.
+        // Обработчик нажатия кнопки цифры.
+        // Добавляет цифру на дисплей и обновляет историю.
 
         private void DigitButton_Click(object sender, EventArgs e)
         {
@@ -53,7 +55,7 @@ namespace BasicCalculatorWinForms
             txtHistory.Text = history;
         }
 
-        /// Обработчик кнопки "C". Очищает дисплей, историю и сбрасывает сохранённые значения.
+        // Обработчик кнопки "C". Очищает дисплей, историю и сбрасывает сохранённые значения.
 
         private void BtnClear_Click(object sender, EventArgs e)
         {
@@ -64,37 +66,56 @@ namespace BasicCalculatorWinForms
             operation = "";
         }
 
-
-        /// Обработчик кнопки сложения.
-        /// Сохраняет текущее число и операцию, обновляет историю.
+        // Обработчик кнопки сложения.
+        // Сохраняет текущее число и операцию, обновляет историю.
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             ProcessOperation("+");
         }
 
-        /// Обработчик кнопки вычитания.
+        // Обработчик кнопки вычитания.
+
         private void BtnSubtract_Click(object sender, EventArgs e)
         {
             ProcessOperation("-");
         }
 
-        /// Обработчик кнопки умножения.
-
+        // Обработчик кнопки умножения.
         private void BtnMultiply_Click(object sender, EventArgs e)
         {
             ProcessOperation("*");
         }
 
-        /// Обработчик кнопки деления.
-
+        // Обработчик кнопки деления.
         private void BtnDivide_Click(object sender, EventArgs e)
         {
             ProcessOperation("/");
         }
 
-        /// Сохраняет текущее число и выбранную операцию.
-        /// Обновляет историю, добавляя символ операции.
+        // Обработчик кнопки возведения в степень.
+        // Сохраняет текущее число как основание и устанавливает операцию "^"
+
+        private void BtnPower_Click(object sender, EventArgs e)
+        {
+            ProcessOperation("^");
+        }
+        // Обработчик кнопки квадратного корня.
+        // В данном случае, по требованию, сначала нажимается кнопка √,
+        // затем вводится число, и при нажатии "=" вычисляется квадратный корень введённого числа.
+
+        private void BtnSqrt_Click(object sender, EventArgs e)
+        {
+            // Для квадратного корня не сохраняем текущее число,
+            // а просто устанавливаем операцию "sqrt" и очищаем дисплей для ввода радика́нда.
+            operation = "sqrt";
+            isOperationPerformed = true;
+            history += " √ ";
+            txtHistory.Text = history;
+        }
+
+        // Сохраняет текущее число и выбранную операцию.
+        // Обновляет историю, добавляя символ операции.
         private void ProcessOperation(string op)
         {
             if (double.TryParse(txtDisplay.Text, out previousValue))
@@ -107,10 +128,9 @@ namespace BasicCalculatorWinForms
             }
         }
 
-
-        /// Обработчик кнопки "=".
-        /// Выполняет вычисление на основе сохранённого значения, выбранной операции и текущего числа.
-        /// После вычисления обновляет дисплей и историю.
+        // Обработчик кнопки "=".
+        // Выполняет вычисление на основе сохранённого значения, выбранной операции и текущего числа.
+        // После вычисления обновляет дисплей и историю.
 
         private void BtnEquals_Click(object sender, EventArgs e)
         {
@@ -141,6 +161,17 @@ namespace BasicCalculatorWinForms
                         return;
                     }
                     break;
+                case "^":
+                    result = Math.Pow(previousValue, currentValue);
+                    break;
+                case "sqrt":
+                    if (currentValue < 0)
+                    {
+                        MessageBox.Show("Нельзя вычислить квадратный корень из отрицательного числа!");
+                        return;
+                    }
+                    result = Math.Sqrt(currentValue);
+                    break;
                 default:
                     return;
             }
@@ -156,5 +187,3 @@ namespace BasicCalculatorWinForms
         }
     }
 }
-
-

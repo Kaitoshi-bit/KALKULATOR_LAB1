@@ -16,6 +16,8 @@
         internal System.Windows.Forms.Button btnSubtract;     // Кнопка вычитания
         internal System.Windows.Forms.Button btnMultiply;     // Кнопка умножения
         internal System.Windows.Forms.Button btnDivide;       // Кнопка деления
+        internal System.Windows.Forms.Button btnSqrt;         // Кнопка квадратного корня
+        internal System.Windows.Forms.Button btnPower;        // Кнопка возведения в степень
         internal System.Windows.Forms.Button[] digitButtons;  // Массив кнопок для цифр 0-9
         internal System.Windows.Forms.Label lblAuthor;          // Label для фиксации этапа разработки (ФИО автора)
 
@@ -53,6 +55,8 @@
             this.btnSubtract = new System.Windows.Forms.Button();
             this.btnMultiply = new System.Windows.Forms.Button();
             this.btnDivide = new System.Windows.Forms.Button();
+            this.btnSqrt = new System.Windows.Forms.Button();
+            this.btnPower = new System.Windows.Forms.Button();
 
             // Инициализация массива кнопок для цифр 0-9
             this.digitButtons = new System.Windows.Forms.Button[10];
@@ -137,26 +141,44 @@
             this.btnEquals.Text = "=";
             this.btnEquals.UseVisualStyleBackColor = true;
             // 
+            // btnSqrt (квадратный корень)
+            // 
+            this.btnSqrt.Location = new System.Drawing.Point(12, 284);
+            this.btnSqrt.Name = "btnSqrt";
+            this.btnSqrt.Size = new System.Drawing.Size(60, 40);
+            this.btnSqrt.TabIndex = 8;
+            this.btnSqrt.Text = "√";
+            this.btnSqrt.UseVisualStyleBackColor = true;
+            // 
+            // btnPower (возведение в степень)
+            // 
+            this.btnPower.Location = new System.Drawing.Point(78, 284);
+            this.btnPower.Name = "btnPower";
+            this.btnPower.Size = new System.Drawing.Size(60, 40);
+            this.btnPower.TabIndex = 9;
+            this.btnPower.Text = "^";
+            this.btnPower.UseVisualStyleBackColor = true;
+            // 
             // Кнопки для цифр (0-9)
             // Ряд 1: кнопки 7, 8, 9
             this.digitButtons[7].Location = new System.Drawing.Point(12, 110);
             this.digitButtons[7].Name = "btn7";
             this.digitButtons[7].Size = new System.Drawing.Size(60, 40);
-            this.digitButtons[7].TabIndex = 8;
+            this.digitButtons[7].TabIndex = 10;
             this.digitButtons[7].Text = "7";
             this.digitButtons[7].UseVisualStyleBackColor = true;
 
             this.digitButtons[8].Location = new System.Drawing.Point(78, 110);
             this.digitButtons[8].Name = "btn8";
             this.digitButtons[8].Size = new System.Drawing.Size(60, 40);
-            this.digitButtons[8].TabIndex = 9;
+            this.digitButtons[8].TabIndex = 11;
             this.digitButtons[8].Text = "8";
             this.digitButtons[8].UseVisualStyleBackColor = true;
 
             this.digitButtons[9].Location = new System.Drawing.Point(144, 110);
             this.digitButtons[9].Name = "btn9";
             this.digitButtons[9].Size = new System.Drawing.Size(60, 40);
-            this.digitButtons[9].TabIndex = 10;
+            this.digitButtons[9].TabIndex = 12;
             this.digitButtons[9].Text = "9";
             this.digitButtons[9].UseVisualStyleBackColor = true;
 
@@ -164,21 +186,21 @@
             this.digitButtons[4].Location = new System.Drawing.Point(12, 156);
             this.digitButtons[4].Name = "btn4";
             this.digitButtons[4].Size = new System.Drawing.Size(60, 40);
-            this.digitButtons[4].TabIndex = 11;
+            this.digitButtons[4].TabIndex = 13;
             this.digitButtons[4].Text = "4";
             this.digitButtons[4].UseVisualStyleBackColor = true;
 
             this.digitButtons[5].Location = new System.Drawing.Point(78, 156);
             this.digitButtons[5].Name = "btn5";
             this.digitButtons[5].Size = new System.Drawing.Size(60, 40);
-            this.digitButtons[5].TabIndex = 12;
+            this.digitButtons[5].TabIndex = 14;
             this.digitButtons[5].Text = "5";
             this.digitButtons[5].UseVisualStyleBackColor = true;
 
             this.digitButtons[6].Location = new System.Drawing.Point(144, 156);
             this.digitButtons[6].Name = "btn6";
             this.digitButtons[6].Size = new System.Drawing.Size(60, 40);
-            this.digitButtons[6].TabIndex = 13;
+            this.digitButtons[6].TabIndex = 15;
             this.digitButtons[6].Text = "6";
             this.digitButtons[6].UseVisualStyleBackColor = true;
 
@@ -186,21 +208,21 @@
             this.digitButtons[1].Location = new System.Drawing.Point(12, 202);
             this.digitButtons[1].Name = "btn1";
             this.digitButtons[1].Size = new System.Drawing.Size(60, 40);
-            this.digitButtons[1].TabIndex = 14;
+            this.digitButtons[1].TabIndex = 16;
             this.digitButtons[1].Text = "1";
             this.digitButtons[1].UseVisualStyleBackColor = true;
 
             this.digitButtons[2].Location = new System.Drawing.Point(78, 202);
             this.digitButtons[2].Name = "btn2";
             this.digitButtons[2].Size = new System.Drawing.Size(60, 40);
-            this.digitButtons[2].TabIndex = 15;
+            this.digitButtons[2].TabIndex = 17;
             this.digitButtons[2].Text = "2";
             this.digitButtons[2].UseVisualStyleBackColor = true;
 
             this.digitButtons[3].Location = new System.Drawing.Point(144, 202);
             this.digitButtons[3].Name = "btn3";
             this.digitButtons[3].Size = new System.Drawing.Size(60, 40);
-            this.digitButtons[3].TabIndex = 16;
+            this.digitButtons[3].TabIndex = 18;
             this.digitButtons[3].Text = "3";
             this.digitButtons[3].UseVisualStyleBackColor = true;
 
@@ -208,7 +230,7 @@
             this.digitButtons[0].Location = new System.Drawing.Point(12, 248);
             this.digitButtons[0].Name = "btn0";
             this.digitButtons[0].Size = new System.Drawing.Size(60, 40);
-            this.digitButtons[0].TabIndex = 17;
+            this.digitButtons[0].TabIndex = 19;
             this.digitButtons[0].Text = "0";
             this.digitButtons[0].UseVisualStyleBackColor = true;
 
@@ -217,11 +239,11 @@
             // 
             this.lblAuthor.AutoSize = true;
             this.lblAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblAuthor.Location = new System.Drawing.Point(10, 300); // Расположение на форме
+            this.lblAuthor.Location = new System.Drawing.Point(10, 330); // Расположение на форме
             this.lblAuthor.Name = "lblAuthor";
             this.lblAuthor.Size = new System.Drawing.Size(250, 20);
-            this.lblAuthor.TabIndex = 18;
-            this.lblAuthor.Text = "Автор: Копнин М.Х. ИСП(11)-23-2";
+            this.lblAuthor.TabIndex = 20;
+            this.lblAuthor.Text = "Автор: Копнин М.Х ИСП(11)-23-2";
 
             // Добавляем все элементы на форму
             this.Controls.Add(this.txtDisplay);
@@ -232,13 +254,15 @@
             this.Controls.Add(this.btnMultiply);
             this.Controls.Add(this.btnDivide);
             this.Controls.Add(this.btnEquals);
+            this.Controls.Add(this.btnSqrt);
+            this.Controls.Add(this.btnPower);
             for (int i = 0; i < 10; i++)
             {
                 this.Controls.Add(this.digitButtons[i]);
             }
             this.Controls.Add(this.lblAuthor);
 
-            this.ClientSize = new System.Drawing.Size(284, 320);
+            this.ClientSize = new System.Drawing.Size(284, 370);
             this.Name = "Form1";
             this.Text = "Basic Calculator";
             this.ResumeLayout(false);
