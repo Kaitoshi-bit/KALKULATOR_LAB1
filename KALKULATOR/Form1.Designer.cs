@@ -17,6 +17,7 @@
         internal System.Windows.Forms.Button btnMultiply;     // Кнопка умножения
         internal System.Windows.Forms.Button btnDivide;       // Кнопка деления
         internal System.Windows.Forms.Button[] digitButtons;  // Массив кнопок для цифр 0-9
+        internal System.Windows.Forms.Label lblAuthor;          // Label для фиксации этапа разработки (ФИО автора)
 
         /// <summary>
         /// Освободить все используемые ресурсы.
@@ -59,6 +60,9 @@
             {
                 this.digitButtons[i] = new System.Windows.Forms.Button();
             }
+
+            // Инициализация Label для ФИО автора
+            this.lblAuthor = new System.Windows.Forms.Label();
 
             // 
             // txtDisplay
@@ -208,6 +212,17 @@
             this.digitButtons[0].Text = "0";
             this.digitButtons[0].UseVisualStyleBackColor = true;
 
+            // 
+            // lblAuthor
+            // 
+            this.lblAuthor.AutoSize = true;
+            this.lblAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblAuthor.Location = new System.Drawing.Point(10, 300); // Расположение на форме
+            this.lblAuthor.Name = "lblAuthor";
+            this.lblAuthor.Size = new System.Drawing.Size(250, 20);
+            this.lblAuthor.TabIndex = 18;
+            this.lblAuthor.Text = "Автор: Копнин М.Х. ИСП(11)-23-2";
+
             // Добавляем все элементы на форму
             this.Controls.Add(this.txtDisplay);
             this.Controls.Add(this.txtHistory);
@@ -221,10 +236,13 @@
             {
                 this.Controls.Add(this.digitButtons[i]);
             }
+            this.Controls.Add(this.lblAuthor);
 
-            this.ClientSize = new System.Drawing.Size(284, 300);
+            this.ClientSize = new System.Drawing.Size(284, 320);
             this.Name = "Form1";
             this.Text = "Basic Calculator";
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
 
         #endregion
